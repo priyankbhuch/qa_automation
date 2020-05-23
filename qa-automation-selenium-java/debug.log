@@ -1,0 +1,10 @@
+[0428/222229.762:ERROR:crash_report_database_win.cc(558)] GetFileAttributes C:\Users\pbhuch\AppData\Local\Temp\scoped_dir9992_20545468\Crashpad: The system cannot find the file specified. (0x2)
+[0428/223146.310:ERROR:crash_report_database_win.cc(558)] GetFileAttributes C:\Users\pbhuch\AppData\Local\Temp\scoped_dir4008_1853039241\Crashpad: The system cannot find the file specified. (0x2)
+[0428/224440.035:ERROR:crash_report_database_win.cc(558)] GetFileAttributes C:\Users\pbhuch\AppData\Local\Temp\scoped_dir228_1224103050\Crashpad: The system cannot find the file specified. (0x2)
+[0501/204207.873:ERROR:crash_report_database_win.cc(558)] GetFileAttributes C:\Users\pbhuch\AppData\Local\Temp\scoped_dir1144_1333374107\Crashpad: The system cannot find the file specified. (0x2)
+[0503/155703.405:ERROR:crash_report_database_win.cc(558)] GetFileAttributes C:\Users\pbhuch\AppData\Local\Temp\scoped_dir17396_2108287932\Crashpad: The system cannot find the file specified. (0x2)
+[0505/081703.689:ERROR:crash_report_database_win.cc(558)] GetFileAttributes C:\Users\pbhuch\AppData\Local\Temp\scoped_dir10760_1496830905\Crashpad: The system cannot find the file specified. (0x2)
+[0505/081856.344:ERROR:crash_report_database_win.cc(558)] GetFileAttributes C:\Users\pbhuch\AppData\Local\Temp\scoped_dir9520_1303623425\Crashpad: The system cannot find the file specified. (0x2)
+[0510/191100.262:ERROR:file_io_win.cc(161)] CreateFile C:\Users\pbhuch\AppData\Local\Temp\scoped_dir28316_340840472\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
+[0510/191100.269:ERROR:file_io_win.cc(170)] CreateFile C:\Users\pbhuch\AppData\Local\Temp\scoped_dir28316_340840472\Crashpad\reports\12ca88f4-651c-42fa-bff6-f4c875204d1e.dmp: The system cannot find the path specified. (0x3)
+[0510/191100.269:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
