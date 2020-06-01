@@ -18,12 +18,15 @@ public class GMailTest extends TestCase {
     private Properties properties = new Properties();
 
     public void setUp() throws Exception {
-        
+    	
+    	
+        Runtime.getRuntime().exec("TASKKILL /F /IM chromedriver.exe");
+        Runtime.getRuntime().exec("TASKKILL /F /IM chrome.exe");
         properties.load(new FileReader(new File("src/test/resources/test.properties")));
         //Dont Change below line. Set this value in test.properties file incase you need to change it..
         System.setProperty("webdriver.chrome.driver",properties.getProperty("webdriver.chrome.driver"));
              
-        driver = new ChromeDriver();
+        driver = new ChromeDriver();        
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
                 
@@ -43,8 +46,6 @@ public class GMailTest extends TestCase {
     	try
     	{
         
-    	//	WebDriverWait wait = new WebDriverWait(driver, 15);		
-    		
     	//Navigate to Gmail
     	driver.get("https://mail.google.com/");
         Thread.sleep(1000);
@@ -55,13 +56,12 @@ public class GMailTest extends TestCase {
         driver.findElement(By.id("identifierNext")).click();
         
         Thread.sleep(5000);
-//      driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         WebElement passwordElement = driver.findElement(By.name("password"));
         passwordElement.sendKeys(properties.getProperty("password"));
         driver.findElement(By.id("passwordNext")).click();
-        //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        Thread.sleep(10000);
+        Thread.sleep(20000);
         
+//        driver.wait(15000);
         //Compose an email from subject and body as mentioned in src/test/resources/test.properties
         WebElement composeElement = driver.findElement(By.xpath("//*[@role='button' and (.)='Compose']"));
         composeElement.click();
@@ -89,17 +89,10 @@ public class GMailTest extends TestCase {
     	//Send the email to the same account which was used to login (from and to addresses would be the same)
         driver.findElement(By.xpath("//*[@role='button' and text()='Send']")).click();
         
-        //Page refresh
-        
         //Wait for the email to arrive in the Inbox
         Thread.sleep(3000);
         driver.findElement(By.xpath("//*[@aria-label='Social' and @role='tab']")).click();
         
-/*        //Search the mail
-        driver.findElement(By.xpath("//*[@aria-label='Search mail' and @class='gb_nf']")).click();
-        driver.findElement(By.xpath("//*[@aria-label='Search mail' and @class='gb_nf']")).sendKeys(emailSubject);
-        driver.findElement(By.xpath("//*[@aria-label='Search Mail' and @role='button']")).click();
-*/        
         Thread.sleep(5000);
         
         //Get the row index
@@ -141,7 +134,6 @@ public class GMailTest extends TestCase {
         //Generate test execution report at the end
     	
     	//Logout
-    	
     	System.out.println("End of script");
     	tearDown();
          
@@ -150,8 +142,7 @@ public class GMailTest extends TestCase {
     	{
     		System.out.println(e.getMessage());
     	}
-         
-        
+       
     }
     
     public int getRowIndexFromSubjectLine (String subjectLine)
